@@ -39,12 +39,17 @@ async function main() {
 
   if (
     Equal.notEqual(newCommand, commandPicked.Home) &&
+    Equal.notEqual(newCommand, commandPicked.FileRead) &&
     Equal.isEqual(newCommand, commandPicked.Timer)
   ) {
     timerCode();
   }
 
-  if (Equal.isEqual(newCommand, commandPicked.FileRead)) {
+  if (
+    Equal.isEqual(newCommand, commandPicked.FileRead) &&
+    Equal.notEqual(newCommand, commandPicked.Home) &&
+    Equal.notEqual(newCommand, commandPicked.Timer)
+  ) {
     InstalledPackages.readFiles("packages.pkgs");
   }
 }
