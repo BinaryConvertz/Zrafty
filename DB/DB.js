@@ -55,7 +55,7 @@ var Client;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
+                        _a.trys.push([0, 3, , 4]);
                         m = new mongodb_1.MongoClient(Utils.getURI("mongodb://localhost:27017"));
                         return [4 /*yield*/, m.connect()];
                     case 1:
@@ -64,19 +64,18 @@ var Client;
                         db = m.db("Command");
                         col = db.collection("Commands");
                         dataByUser = Utils.insertCustomData(dataString);
-                        col.insertOne({ data: dataByUser });
+                        return [4 /*yield*/, col.insertOne({ data: dataByUser })];
+                    case 2:
+                        _a.sent();
                         if (dataByUser === null) {
-                            return [2 /*return*/];
-                        }
-                        else {
                             console.log(dataByUser);
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
+                        return [3 /*break*/, 4];
+                    case 3:
                         e_1 = _a.sent();
                         console.log(e_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });

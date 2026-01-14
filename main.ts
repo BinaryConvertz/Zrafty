@@ -1,13 +1,15 @@
 import { Equal } from "./Checking/CheckingCode";
 import Commands from "./Commands/cmds";
 import { question } from "readline-sync";
-import User, { endline, Title, Upper } from "./ExtraUser";
+import User, { endline, Title, Upper } from "./Extras/ExtraUser";
 import { Client } from "./DB/DB";
+import { InstalledPackages } from "./Routes/Home";
 
 const commandPicked: Commands = {
   Home: "/",
   Math: "/Math",
   Timer: "/Timer",
+  FileRead: "/Read",
 };
 
 async function sleep(ms: number): Promise<void> {
@@ -41,6 +43,10 @@ async function main() {
   ) {
     timerCode();
   }
+
+  if (Equal.isEqual(newCommand, commandPicked.FileRead)) {
+    InstalledPackages.readFiles("packages.pkgs");
+  }
 }
 
 const ListCommands = (): void => {
@@ -48,6 +54,7 @@ const ListCommands = (): void => {
     Home: "/",
     Math: "/Math",
     Timer: "/Timer",
+    FileRead: "/Read",
   };
 
   console.log(commandPicked);

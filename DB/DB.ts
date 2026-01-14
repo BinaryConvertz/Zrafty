@@ -23,11 +23,9 @@ export namespace Client {
       const col = db.collection("Commands");
 
       const dataByUser = Utils.insertCustomData(dataString);
+      await col.insertOne({ data: dataByUser });
 
-      col.insertOne({ data: dataByUser });
       if (dataByUser === null) {
-        return;
-      } else {
         console.log(dataByUser);
       }
     } catch (e) {

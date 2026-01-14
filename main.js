@@ -73,10 +73,12 @@ var CheckingCode_1 = require("./Checking/CheckingCode");
 var readline_sync_1 = require("readline-sync");
 var ExtraUser_1 = __importStar(require("./ExtraUser"));
 var DB_1 = require("./DB/DB");
+var Home_1 = require("./Routes/Home");
 var commandPicked = {
     Home: "/",
     Math: "/Math",
     Timer: "/Timer",
+    FileRead: "/Read",
 };
 function sleep(ms) {
     return __awaiter(this, void 0, void 0, function () {
@@ -110,6 +112,9 @@ function main() {
                         CheckingCode_1.Equal.isEqual(newCommand, commandPicked.Timer)) {
                         timerCode();
                     }
+                    if (CheckingCode_1.Equal.isEqual(newCommand, commandPicked.FileRead)) {
+                        Home_1.InstalledPackages.readFiles("packages.pkgs");
+                    }
                     return [2 /*return*/];
             }
         });
@@ -120,6 +125,7 @@ var ListCommands = function () {
         Home: "/",
         Math: "/Math",
         Timer: "/Timer",
+        FileRead: "/Read",
     };
     console.log(commandPicked);
 };
