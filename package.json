@@ -13,6 +13,7 @@
   "type": "commonjs",
   "dependencies": {
     "@types/readline-sync": "^1.4.8",
+    "mongodb": "^7.0.0",
     "readline-sync": "^1.4.10"
   }
 }
